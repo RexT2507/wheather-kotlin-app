@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Weather</string>
-    <string name="createcity_title">Un nouveau nom de ville ?</string>
-    <string name="createcity_button">Créer une ville</string>
-    <string name="createcity_cancel">Annuler</string>
+    <string name="create_city_title">Un nouveau nom de ville ?</string>
+    <string name="create_city_button">Créer une ville</string>
+    <string name="create_city_cancel">Annuler</string>
+    <string name="create_city_title_view">Créer un ville</string>
+    <string name="error_message_city_create">Impossible de créer la ville</string>
 </resources>

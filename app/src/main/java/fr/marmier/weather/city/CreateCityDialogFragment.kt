@@ -29,13 +29,13 @@ class CreateCityDialogFragment : DialogFragment() {
             hint = "Marseille, Istvaan"
         }
 
-        builder.setTitle(getString(R.string.createcity_title)).setView(input)
-                .setPositiveButton(getString(R.string.createcity_button),
+        builder.setTitle(getString(R.string.create_city_title)).setView(input)
+                .setPositiveButton(getString(R.string.create_city_button),
                     DialogInterface.OnClickListener {_, _->
                         listener?.onDialogPositiveClick((input.text.toString()))
                     }
                 )
-                .setNegativeButton(getString(R.string.createcity_cancel),
+                .setNegativeButton(getString(R.string.create_city_cancel),
                     DialogInterface.OnClickListener {_, _->
                         listener?.onDialogNegativeClick()
                     }
