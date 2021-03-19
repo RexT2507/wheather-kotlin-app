@@ -41,7 +41,7 @@ class Database (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
     {
         val values = ContentValues()
         values.put(CITY_KEY_NAME, city.name)
-        Log.d(TAG, "Création de la villme : $values")
+        Log.d(TAG, "Création de la ville : $values")
 
         val id = writableDatabase.insert(CITY_TABLE_NAME, null, values)
         city.id = id
