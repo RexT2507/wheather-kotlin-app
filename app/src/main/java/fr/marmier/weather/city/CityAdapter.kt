@@ -8,6 +8,12 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import fr.marmier.weather.R
 
+/**
+ * TODO
+ *
+ * @property cities
+ * @property cityListener
+ */
 class CityAdapter(private val cities: List<City>, private val cityListener: CityAdapter.CityItemListener) : RecyclerView.Adapter<CityAdapter.ViewHolder>(),
     View.OnClickListener {
 
@@ -26,6 +32,12 @@ class CityAdapter(private val cities: List<City>, private val cityListener: City
         return  ViewHolder(viewItem)
     }
 
+    /**
+     * TODO
+     *
+     * @param holder
+     * @param position
+     */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val city = cities[position]
         with(holder){
