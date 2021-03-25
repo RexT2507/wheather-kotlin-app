@@ -42,7 +42,7 @@ class DeleteCityDialogFragment: DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        cityName = arguments!!.getString(EXTRA_CITY_NAME)
+        cityName = arguments!!.getString(EXTRA_CITY_NAME)!!
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
