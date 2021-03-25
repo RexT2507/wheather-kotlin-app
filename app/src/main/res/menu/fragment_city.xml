@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/action_create_city"
-        android:icon="@drawable/ic_baseline_location_city_24"
+        android:icon="@drawable/ic_baseline_add_24"
         app:showAsAction="always"
         android:title="@string/create_city_title_view"
         ></item>

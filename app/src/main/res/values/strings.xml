@@ -5,4 +5,7 @@
     <string name="create_city_cancel">Annuler</string>
     <string name="create_city_title_view">Créer un ville</string>
     <string name="error_message_city_create">Impossible de créer la ville</string>
+    <string name="delete_city_title">Voulez vous vraiment supprimer %1$s?</string>
+    <string name="delete_city_positive">Supprimer ville</string>
+    <string name="delete_city_negative">Annuler</string>
 </resources>
