@@ -20,7 +20,6 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         database = App.database
-        cities = mutableListOf()
         setHasOptionsMenu(true)
     }
 
@@ -37,6 +36,8 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        cities = database.getAllCities()
         adapter = CityAdapter(cities, this)
         recyclerView.adapter = adapter
     }
@@ -73,6 +74,7 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
     private fun saveCity(city: City){
         if(database.createCity(city)){
             cities.add(city)
+            adapter.notifyDataSetChanged()
         }else {
             Toast.makeText(context, getString(R.string.error_message_city_create), Toast.LENGTH_SHORT).show()
         }
