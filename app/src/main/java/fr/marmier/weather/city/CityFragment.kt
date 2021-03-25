@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.marmier.weather.App
 import fr.marmier.weather.Database
 import fr.marmier.weather.R
+import fr.marmier.weather.utils.toast
 
 class CityFragment : Fragment(), CityAdapter.CityItemListener {
 
@@ -76,12 +77,18 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
             cities.add(city)
             adapter.notifyDataSetChanged()
         }else {
-            Toast.makeText(context, getString(R.string.error_message_city_create), Toast.LENGTH_SHORT).show()
+            context?.toast(getString(R.string.error_message_city_create))
         }
     }
 
     private fun deleteCity(city: City) {
-
+        if(database.deleteCity(city)) {
+            cities.remove(city)
+            adapter.notifyDataSetChanged()
+            context?.toast(getString(R.string.error_message_city_delete, city.name))
+        }else {
+            context?.toast(getString(R.string.error_message_city_canot_delete, city.name))
+        }
     }
 
     override fun onCitySelected(city: City) {
