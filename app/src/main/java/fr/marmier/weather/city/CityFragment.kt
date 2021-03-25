@@ -80,11 +80,33 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         }
     }
 
+    private fun deleteCity(city: City) {
+
+    }
+
     override fun onCitySelected(city: City) {
         TODO("Not yet implemented")
     }
 
     override fun onCityDeleted(city: City) {
-        TODO("Not yet implemented")
+        showDeleteCityDialog(city)
     }
+
+    private fun showDeleteCityDialog(city: City) {
+        val deleteCityFragment = DeleteCityDialogFragment.newInstance(city.name)
+
+        deleteCityFragment.listener = object: DeleteCityDialogFragment.DeleteCityDialogListener {
+            override fun onDialogPositiveClick() {
+                deleteCity(city)
+            }
+
+            override fun onDialogNegativeClick() {
+
+            }
+
+        }
+        deleteCityFragment.show(fragmentManager!!, "DeleteCityDialogFragment")
+
+    }
+
 }
