@@ -10,4 +10,5 @@
     <string name="delete_city_negative">Annuler</string>
     <string name="error_message_city_delete">%1$s a été supprimé</string>
     <string name="error_message_city_canot_delete">Impossible de supprimer %1$s</string>
+    <string name="weather_message_error_couldnt_load">Impossible d\'afficher la métép de cette ville</string>
 </resources>
