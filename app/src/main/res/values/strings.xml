@@ -11,4 +11,9 @@
     <string name="error_message_city_delete">%1$s a été supprimé</string>
     <string name="error_message_city_canot_delete">Impossible de supprimer %1$s</string>
     <string name="weather_message_error_couldnt_load">Impossible d\'afficher la métép de cette ville</string>
+    
+    <string name="weather_message_error_could_not_load_weather">Could not load city weather</string>
+    <string name="weather_temperature_value">%1$s °C</string>
+    <string name="weather_humidity_value">%1$s %%</string>
+    <string name="weather_pressure_value">%1$s hPa</string>
 </resources>

@@ -1,5 +1,5 @@
-# wheather-kotlin-app
-Wheather app developped with Kotlin.
+# weather-kotlin-app
+Weather app developped with Kotlin.
 
 # Getting Started
 
@@ -21,6 +21,7 @@ Make sure you own [Android studio](https://developer.android.com/studio) or inst
 ## Libraries
 - [material](https://material.io/)
 - [Retrofit](https://square.github.io/retrofit/)
+- [okHttp](https://square.github.io/okhttp/)
 
 ## API
 - [OpenWeather](https://openweathermap.org/)
