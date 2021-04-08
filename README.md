@@ -1,6 +1,8 @@
 # weather-kotlin-app
 Weather app developped with Kotlin.
 
+![capture application v0](captureV0.gif)
+
 # Getting Started
 
 this application is made with **kotlin** for *Android*
