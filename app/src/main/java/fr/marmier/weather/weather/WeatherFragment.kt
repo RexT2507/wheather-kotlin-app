@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.squareup.picasso.Picasso
 import fr.marmier.weather.App
 import fr.marmier.weather.R
 import fr.marmier.weather.openweathermap.WeatherWrapper
@@ -89,6 +90,7 @@ class WeatherFragment : Fragment() {
     }
 
     private fun updateUI(weather: Weather) {
+        Picasso.get().load(weather.iconUrl).placeholder(R.drawable.ic_baseline_cloud_off_24).into(weatherIcon)
         weatherDescription.text = weather.description
         temperature.text = getString(R.string.weather_temperature_value, weather.temperature.toInt().toString())
         humidity.text = getString(R.string.weather_humidity_value, weather.humidity.toString())
