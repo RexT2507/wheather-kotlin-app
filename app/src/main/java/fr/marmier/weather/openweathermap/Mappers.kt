@@ -1,5 +1,7 @@
 package fr.marmier.weather.openweathermap
 
+import fr.marmier.weather.weather.Weather
+
 fun mapOpenWeatherDataToWeather(weatherWrapper: WeatherWrapper) : Weather {
     val weatherFirst = weatherWrapper.weather.first()
     return  Weather(
