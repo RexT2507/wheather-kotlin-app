@@ -26,8 +26,15 @@ Make sure you own [Android studio](https://developer.android.com/studio) or inst
 - [okHttp](https://square.github.io/okhttp/)
 - [picasso](https://square.github.io/picasso/)
 
+
+## Documentation
+- [Dokka](https://kotlin.github.io/dokka/1.4.30/)
+
 ## API
 - [OpenWeather](https://openweathermap.org/)
+
+# Documentation 
+https://rext2507.github.io/wheather-kotlin-app/index.html
 
 # Developpement project guide
 
