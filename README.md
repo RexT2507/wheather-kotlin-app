@@ -1,7 +1,7 @@
 # weather-kotlin-app
 Weather app developped with Kotlin.
 
-![capture application v0](captureV0.gif)
+![capture application v0](captureV0-1.gif)
 
 # Getting Started
 
