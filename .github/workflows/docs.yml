@@ -1,21 +1,25 @@
+# Nom de notre workflow
+name: "Build and deploy Github pages"
 
-name: Docs
+# Événements sur lesquels il doit être déclenché
 on:
-  push:
-    branches: [master]
+  push:         # <- Déclenché lorsque l'on pousse du code...
+    branches:
+      - master  # <- ... mais seulement sur la branche "master"
+
 jobs:
-  publish:
+
+  # Notre job
+  build-and-deploy:
     runs-on: ubuntu-latest
+
+    # Tâches à effectuer, comme expliquées ci-dessus
     steps:
-      - uses: actions/checkout@v2
+
+      # Déploiement sur les Github Pages
+      - name: "Deploy Github Pages"
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          persist-credentials: false
-      - name: Set up JDK
-        uses: actions/setup-java@v1
-        with:
-          java-version: 11
-      - name: Publish documentation
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          BRANCH: gh-pages
-          FOLDER: docs
+          GITHUB_TOKEN: ${{ secrets.DOKKA_TOKEN }}
+          BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
+          FOLDER: docs/  # <- Dossier contenant notre documentation générée
