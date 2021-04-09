@@ -1,0 +1,18 @@
+//[app](../../index.md)/[fr.marmier.weather.city](index.md)
+
+
+
+# Package fr.marmier.weather.city  
+
+
+## Types  
+  
+|  Name |  Summary | 
+|---|---|
+| <a name="fr.marmier.weather.city/City///PointingToDeclaration/"></a>[City](-city/index.md)| <a name="fr.marmier.weather.city/City///PointingToDeclaration/"></a>[androidJvm]  <br>Content  <br>data class [City](-city/index.md)(**id**: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html), **name**: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html))  <br><br><br>|
+| <a name="fr.marmier.weather.city/CityAdapter///PointingToDeclaration/"></a>[CityAdapter](-city-adapter/index.md)| <a name="fr.marmier.weather.city/CityAdapter///PointingToDeclaration/"></a>[androidJvm]  <br>Content  <br>class [CityAdapter](-city-adapter/index.md)(**cities**: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)<[City](-city/index.md)>, **cityListener**: [CityAdapter.CityItemListener](-city-adapter/-city-item-listener/index.md)) : [RecyclerView.Adapter](https://developer.android.com/reference/kotlin/androidx/recyclerview/widget/RecyclerView.Adapter.html)<[CityAdapter.ViewHolder](-city-adapter/-view-holder/index.md)> , [View.OnClickListener](https://developer.android.com/reference/kotlin/android/view/View.OnClickListener.html)  <br>More info  <br>CityAdapter is an class that allow to display each item of a list of city with good data and manage the click event.  <br><br><br>|
+| <a name="fr.marmier.weather.city/CityFragment///PointingToDeclaration/"></a>[CityFragment](-city-fragment/index.md)| <a name="fr.marmier.weather.city/CityFragment///PointingToDeclaration/"></a>[androidJvm]  <br>Content  <br>class [CityFragment](-city-fragment/index.md) : [Fragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/Fragment.html), [CityAdapter.CityItemListener](-city-adapter/-city-item-listener/index.md)  <br>More info  <br>Display the content of cities and manipulate the various data of the corresponding cities  <br><br><br>|
+| <a name="fr.marmier.weather.city/CreateCityDialogFragment///PointingToDeclaration/"></a>[CreateCityDialogFragment](-create-city-dialog-fragment/index.md)| <a name="fr.marmier.weather.city/CreateCityDialogFragment///PointingToDeclaration/"></a>[androidJvm]  <br>Content  <br>class [CreateCityDialogFragment](-create-city-dialog-fragment/index.md) : [DialogFragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/DialogFragment.html)  <br>More info  <br>CreateCityDialogFragment is a dialog that allow to display a modal to add new city in the list  <br><br><br>|
+| <a name="fr.marmier.weather.city/DeleteCityDialogFragment///PointingToDeclaration/"></a>[DeleteCityDialogFragment](-delete-city-dialog-fragment/index.md)| <a name="fr.marmier.weather.city/DeleteCityDialogFragment///PointingToDeclaration/"></a>[androidJvm]  <br>Content  <br>class [DeleteCityDialogFragment](-delete-city-dialog-fragment/index.md) : [DialogFragment](https://developer.android.com/reference/kotlin/androidx/fragment/app/DialogFragment.html)  <br>More info  <br>City suppression class  <br><br><br>|
+| <a name="fr.marmier.weather.city/MainActivity///PointingToDeclaration/"></a>[MainActivity](-main-activity/index.md)| <a name="fr.marmier.weather.city/MainActivity///PointingToDeclaration/"></a>[androidJvm]  <br>Content  <br>class [MainActivity](-main-activity/index.md) : [AppCompatActivity](https://developer.android.com/reference/kotlin/androidx/appcompat/app/AppCompatActivity.html), [CityFragment.CityFragmentListener](-city-fragment/-city-fragment-listener/index.md)  <br><br><br>|
+
