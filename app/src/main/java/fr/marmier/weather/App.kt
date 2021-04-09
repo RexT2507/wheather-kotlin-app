@@ -7,8 +7,15 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * Main Class
+ *
+ */
 class App : Application() {
 
+    /**
+     * We go through a companion in order to be able to continue instantiating it while keeping the constructor
+     */
     companion object {
 
         lateinit var instance: App
@@ -18,10 +25,16 @@ class App : Application() {
             Database(instance)
         }
 
+        /**
+         * Creation of the http client
+         */
         private val httpClient = OkHttpClient.Builder()
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .build()
 
+        /**
+         * Creation of the retrofit which uses the http client
+         */
         private val retrofit = Retrofit.Builder()
             .client(httpClient)
             .baseUrl("https://api.openweathermap.org/")
@@ -31,6 +44,10 @@ class App : Application() {
         val weatherService: OpenWeatherService = retrofit.create(OpenWeatherService::class.java)
     }
 
+    /**
+     * Creation of the instance of the two previous methods
+     *
+     */
     override fun onCreate() {
         super.onCreate()
         instance = this
