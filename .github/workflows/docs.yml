@@ -15,6 +15,8 @@ jobs:
 
     # Tâches à effectuer, comme expliquées ci-dessus
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.1
 
       # Déploiement sur les Github Pages
       - name: "Deploy Github Pages"
@@ -22,4 +24,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.DOKKA_TOKEN }}
           BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
-          FOLDER: /docs  # <- Dossier contenant notre documentation générée
+          FOLDER: docs  # <- Dossier contenant notre documentation générée
