@@ -12,7 +12,12 @@ import fr.marmier.weather.R
 import fr.marmier.weather.databinding.FragmentCityBinding
 import fr.marmier.weather.utils.toast
 
+/**
+ *  Display the content of cities and manipulate the various data of the corresponding cities
+ *
+ */
 class CityFragment : Fragment(), CityAdapter.CityItemListener {
+
 
     interface CityFragmentListener{
         fun onCitySelected(city: City){
@@ -29,12 +34,25 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CityAdapter
 
+    /**
+     * Used to instantiate the Option Menu and the database
+     *
+     * @param savedInstanceState
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         database = App.database
         setHasOptionsMenu(true)
     }
 
+    /**
+     * Allows to make the link with the Layout
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -47,6 +65,12 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         return view
     }
 
+    /**
+     * Allows us to instantiate the city view and retrieve the list of its lists
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -55,10 +79,22 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         recyclerView.adapter = adapter
     }
 
+    /**
+     * The flag is true so we can overload in order to populate the createOptionMenu
+     *
+     * @param menu
+     * @param inflater
+     */
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater?.inflate(R.menu.fragment_city, menu)
     }
 
+    /**
+     * Allows click management
+     *
+     * @param item
+     * @return
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId){
             R.id.action_create_city -> {
@@ -69,6 +105,10 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
+     * The function displays the Dialog
+     *
+     */
     private fun showCreateCityDialog(){
         val createCityFragment = CreateCityDialogFragment()
         createCityFragment.listener = object: CreateCityDialogFragment.CreateCityDialogListener{
@@ -84,6 +124,11 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         createCityFragment.show(fragmentManager!!, "CreateCityDialogFragment")
     }
 
+    /**
+     * Save a city in the database
+     *
+     * @param city
+     */
     private fun saveCity(city: City){
         if(database.createCity(city)){
             cities.add(city)
@@ -93,6 +138,11 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         }
     }
 
+    /**
+     * Remove a city from the database
+     *
+     * @param city
+     */
     private fun deleteCity(city: City) {
         if(database.deleteCity(city)) {
             cities.remove(city)
@@ -103,14 +153,29 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         }
     }
 
+    /**
+     * Select a city
+     *
+     * @param city
+     */
     override fun onCitySelected(city: City) {
         listener?.onCitySelected(city)
     }
 
+    /**
+     * Delete a city
+     *
+     * @param city
+     */
     override fun onCityDeleted(city: City) {
         showDeleteCityDialog(city)
     }
 
+    /**
+     * Display of the removal pop-up
+     *
+     * @param city
+     */
     private fun showDeleteCityDialog(city: City) {
         val deleteCityFragment = DeleteCityDialogFragment.newInstance(city.name)
 

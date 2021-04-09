@@ -23,6 +23,13 @@ private const val CITY_TABLE_CREATE = """
 
 private const val CITY_QUERY_SELECT_ALL = "SELECT * FROM $CITY_TABLE_NAME"
 
+/**
+ * Creation of the database model
+ *
+ * @constructor
+ *
+ * @param context
+ */
 class Database (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION)
 {
 
@@ -38,6 +45,12 @@ class Database (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
 
     }
 
+    /**
+     * Creation of a city in database
+     *
+     * @param city
+     * @return
+     */
     fun createCity(city: City) : Boolean
     {
         val values = ContentValues()
@@ -50,6 +63,11 @@ class Database (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         return id > 0
     }
 
+    /**
+     * Retrieving the list of cities from the database
+     *
+     * @return
+     */
     fun getAllCities(): MutableList<City> {
         val cities = mutableListOf<City>()
         readableDatabase.rawQuery(CITY_QUERY_SELECT_ALL, null).use { cursor ->
@@ -64,6 +82,12 @@ class Database (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         return cities
     }
 
+    /**
+     * Removing a city from the database
+     *
+     * @param city
+     * @return
+     */
     fun deleteCity(city: City): Boolean {
         Log.d(TAG, "Suppression de la ville $city")
         val deleteCount = writableDatabase.delete(
