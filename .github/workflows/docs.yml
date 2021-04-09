@@ -1,5 +1,5 @@
 # Nom de notre workflow
-name: "Build and deploy Github pages"
+name: "deploy Github pages"
 
 # Événements sur lesquels il doit être déclenché
 on:
@@ -22,4 +22,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.DOKKA_TOKEN }}
           BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
-          FOLDER: docs/  # <- Dossier contenant notre documentation générée
+          FOLDER: /docs  # <- Dossier contenant notre documentation générée
