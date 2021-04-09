@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Weather</string>
+    <string name="app_name">Météo Kotlin</string>
     <string name="create_city_title">Un nouveau nom de ville ?</string>
     <string name="create_city_button">Créer une ville</string>
     <string name="create_city_cancel">Annuler</string>

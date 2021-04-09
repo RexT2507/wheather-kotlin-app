@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -13,13 +14,13 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.squareup.picasso.Picasso
 import fr.marmier.weather.App
 import fr.marmier.weather.R
+import fr.marmier.weather.city.CityFragment
 import fr.marmier.weather.databinding.FragmentWeatherBinding
 import fr.marmier.weather.openweathermap.WeatherWrapper
 import fr.marmier.weather.openweathermap.mapOpenWeatherDataToWeather
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 /**
  * WeatherFragment is a fragment that display weather of a city with data of openWeather
  *
@@ -46,6 +47,8 @@ class WeatherFragment : Fragment() {
     private  lateinit var humidity: TextView
     private  lateinit var pressure: TextView
 
+    private lateinit var buttonReturn: Button
+
     /**
      * onCreateView bind the layout
      *
@@ -61,7 +64,6 @@ class WeatherFragment : Fragment() {
     ): View? {
         binding = FragmentWeatherBinding.inflate(inflater, container, false)
         val view = binding.root
-
 
         refreshLayout = binding.swipeRefresh
         city = binding.city
