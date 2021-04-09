@@ -27,7 +27,7 @@ Make sure you own [Android studio](https://developer.android.com/studio) or inst
 - [picasso](https://square.github.io/picasso/)
 
 
-##Documentation
+## Documentation
 - [Dokka](https://kotlin.github.io/dokka/1.4.30/)
 
 ## API
