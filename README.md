@@ -24,6 +24,7 @@ Make sure you own [Android studio](https://developer.android.com/studio) or inst
 - [material](https://material.io/)
 - [Retrofit](https://square.github.io/retrofit/)
 - [okHttp](https://square.github.io/okhttp/)
+- [picasso](https://square.github.io/picasso/)
 
 ## API
 - [OpenWeather](https://openweathermap.org/)

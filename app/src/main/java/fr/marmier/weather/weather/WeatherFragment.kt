@@ -20,6 +20,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * WeatherFragment is a fragment that display weather of a city with data of openWeather
+ *
+ */
 class WeatherFragment : Fragment() {
 
     companion object {
@@ -42,6 +46,14 @@ class WeatherFragment : Fragment() {
     private  lateinit var humidity: TextView
     private  lateinit var pressure: TextView
 
+    /**
+     * onCreateView bind the layout
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -63,6 +75,12 @@ class WeatherFragment : Fragment() {
         return view
     }
 
+    /**
+     * onViewCreated get active city and call function for display its data
+     *
+     * @param view
+     * @param savedInstanceState
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
@@ -72,6 +90,11 @@ class WeatherFragment : Fragment() {
         }
     }
 
+    /**
+     * display data matches to the city name in parameters.
+     *
+     * @param cityName
+     */
     private fun updateWeatherForCity(cityName: String) {
 
         this.cityName = cityName
@@ -89,12 +112,9 @@ class WeatherFragment : Fragment() {
                 call: Call<WeatherWrapper>,
                 response: Response<WeatherWrapper>
             ) {
-
-                Log.i(TAG, "OpenWeatherMap response: ${response?.body()}")
                 response?.body()?.let {
                     val weather = mapOpenWeatherDataToWeather(it)
                     updateUI(weather)
-                    Log.i(TAG, "Weather response : $weather")
                 }
                 refreshLayout.isRefreshing = false
             }
@@ -108,6 +128,11 @@ class WeatherFragment : Fragment() {
 
     }
 
+    /**
+     * updateUI replace the weather data in parameter to each part of layout
+     *
+     * @param weather
+     */
     private fun updateUI(weather: Weather) {
         Picasso.get().load(weather.iconUrl).placeholder(R.drawable.ic_baseline_cloud_off_24).into(weatherIcon)
         weatherDescription.text = weather.description
@@ -116,6 +141,10 @@ class WeatherFragment : Fragment() {
         pressure.text = getString(R.string.weather_pressure_value, weather.pressure.toString())
     }
 
+    /**
+     * reload the display with new API call
+     *
+     */
     private fun refreshWeather() {
         updateWeatherForCity(cityName)
     }

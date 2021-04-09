@@ -2,6 +2,12 @@ package fr.marmier.weather.openweathermap
 
 import fr.marmier.weather.weather.Weather
 
+/**
+ * mapOpenWeatherDataToWeather receive data with API format and transform to local format
+ *
+ * @param weatherWrapper
+ * @return
+ */
 fun mapOpenWeatherDataToWeather(weatherWrapper: WeatherWrapper) : Weather {
     val weatherFirst = weatherWrapper.weather.first()
     return  Weather(
