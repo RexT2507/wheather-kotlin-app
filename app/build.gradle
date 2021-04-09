@@ -59,10 +59,10 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor")
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    implementation 'org.jetbrains.dokka:gfm-plugin:1.4.10.2'
-
     testImplementation 'junit:junit:4.+'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
 }
