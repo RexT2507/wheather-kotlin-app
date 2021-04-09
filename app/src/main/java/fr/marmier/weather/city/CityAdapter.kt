@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import fr.marmier.weather.R
+import fr.marmier.weather.databinding.ItemCityBinding
 
 /**
  * TODO
@@ -22,15 +23,15 @@ class CityAdapter(private val cities: List<City>, private val cityListener: City
         fun onCityDeleted(city: City)
     }
 
-    class ViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
-        val cardView = itemView.findViewById<CardView>(R.id.card_view)!!
-        val cityNameView = itemView.findViewById<TextView>(R.id.name)!!
-        val deleteView = itemView.findViewById<View>(R.id.delete)!!
+    inner class ViewHolder (binding: ItemCityBinding) : RecyclerView.ViewHolder(binding.root){
+        val cardView = binding.cardView!!
+        val cityNameView = binding.name!!
+        val deleteView = binding.delete!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val viewItem = LayoutInflater.from(parent?.context).inflate(R.layout.item_city, parent, false)
-        return  ViewHolder(viewItem)
+        val binding = ItemCityBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return  ViewHolder(binding)
     }
 
     /**

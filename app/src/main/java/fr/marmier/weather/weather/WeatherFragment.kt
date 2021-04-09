@@ -13,6 +13,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.squareup.picasso.Picasso
 import fr.marmier.weather.App
 import fr.marmier.weather.R
+import fr.marmier.weather.databinding.FragmentWeatherBinding
 import fr.marmier.weather.openweathermap.WeatherWrapper
 import fr.marmier.weather.openweathermap.mapOpenWeatherDataToWeather
 import retrofit2.Call
@@ -31,8 +32,9 @@ class WeatherFragment : Fragment() {
 
     private lateinit var cityName: String
 
-    private lateinit var refreshLayout: SwipeRefreshLayout
+    private lateinit var binding: FragmentWeatherBinding
 
+    private lateinit var refreshLayout: SwipeRefreshLayout
     private  lateinit var city: TextView
     private  lateinit var weatherIcon: ImageView
     private  lateinit var weatherDescription: TextView
@@ -45,15 +47,17 @@ class WeatherFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_weather, container, false)
+        binding = FragmentWeatherBinding.inflate(inflater, container, false)
+        val view = binding.root
 
-        refreshLayout = view.findViewById(R.id.swipe_refresh)
-        city = view.findViewById(R.id.city)
-        weatherIcon = view.findViewById(R.id.weather_icon)
-        weatherDescription = view.findViewById(R.id.weather_descript)
-        temperature = view.findViewById(R.id.temperature)
-        humidity = view.findViewById(R.id.humidity)
-        pressure = view.findViewById(R.id.pressure)
+
+        refreshLayout = binding.swipeRefresh
+        city = binding.city
+        weatherIcon = binding.weatherIcon
+        weatherDescription = binding.weatherDescript
+        temperature = binding.temperature
+        humidity = binding.humidity
+        pressure = binding.pressure
 
         refreshLayout.setOnRefreshListener { refreshWeather() }
         return view

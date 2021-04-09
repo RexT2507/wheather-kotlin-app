@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import fr.marmier.weather.App
 import fr.marmier.weather.Database
 import fr.marmier.weather.R
+import fr.marmier.weather.databinding.FragmentCityBinding
 import fr.marmier.weather.utils.toast
 
 class CityFragment : Fragment(), CityAdapter.CityItemListener {
@@ -20,6 +21,8 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
     }
 
     var listener: CityFragmentListener? = null
+
+    private lateinit var binding: FragmentCityBinding
 
     private lateinit var cities: MutableList<City>
     private lateinit var database: Database
@@ -37,8 +40,9 @@ class CityFragment : Fragment(), CityAdapter.CityItemListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_city, container, false)
-        recyclerView = view.findViewById(R.id.cities_recycler_view)
+        binding = FragmentCityBinding.inflate(inflater, container, false)
+        val view = binding.root
+        recyclerView = binding.citiesRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(context)
         return view
     }
